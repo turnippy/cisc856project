@@ -21,7 +21,7 @@ def plot(data, title):
     plt.plot(data)
     ax.set_xlabel('Episode Number')
     ax.set_ylabel('Objective')
-    ax.set_title(title)
+    ax.set_title(title, y=1.1)
     plt.savefig('{}.png'.format(title))
     
 def plot_series(x, y, title, xlab, ylab):
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     accessibility_costs = np.array([200,250,300,350,400,450,500,550,600,650])
     algorithms = ['sarsa', 'ql']
     e = Environment(n=3,c=1,t=6,gamma=0.5,ac=accessibility_costs,dca=2.04,dcb=0.24)
-    '''
+
     # Epsilon comparison
     epsilon_s = [True, False]
     for epi in epsilon_s:
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         end = time.time()
         title2 = 'QLearning, gamma = {}, running time = {} ms'.format(gamma, round(end-start,2))
         plot(res2, title2)
-
+    '''
     # Impact of |N|
     
     n_s = [3,4,5,6]
@@ -127,7 +127,7 @@ if __name__ == '__main__':
             xs.append(n_)
             ys.append(round(end-start, 2))
         plot_series(xs, ys, title, 'Number of affected areas', 'Execution time')
-    '''       
+       
     # Impact of T 
     
     n_s = [3,5]
@@ -158,3 +158,4 @@ if __name__ == '__main__':
             xs.append(t_)
             ys.append(round(end-start, 2))
         plot_series(xs, ys, title, 'Number of planning periods', 'Execution time')
+        '''
